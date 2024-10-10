@@ -32,7 +32,8 @@ class User extends Authenticatable
         'nationality',
         'email_verified_at',
         'password',
-        'currency'
+        'currency',
+        'balance'
     ];
 
     /**

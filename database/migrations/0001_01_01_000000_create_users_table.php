@@ -27,6 +27,8 @@ return new class extends Migration
             $table->integer('gender')->nullable();//0 is male:1 is female
             $table->string('nationality')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            
+            $table->integer('balance')->default('0');
             $table->string('password');
             $table->tinyInteger('status')->default('0');
             
