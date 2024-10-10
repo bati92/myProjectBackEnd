@@ -12,6 +12,7 @@ use App\Http\Controllers\ApiEbankController;
 use App\Http\Controllers\ApiEcardController;
 use App\Http\Controllers\ApiProgramController;
 use App\Http\Controllers\ApiTransferMoneyFirmController;
+use App\Http\Controllers\ApiTransferMoneyFirmOrderController;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\ApiEcardSectionController;
 use App\Http\Controllers\ApiGameController;
@@ -89,6 +90,12 @@ Route::get('program/{id}', [ApiProgramController::class, 'show']);
 
 Route::get('transfer-money-firms', [ApiTransferMoneyFirmController::class, 'index']);
 Route::get('transfer-money-firm/{id}', [ApiTransferMoneyFirmController::class, 'show']);
+
+Route::post('charge', [ApiTransferMoneyFirmOrderController::class, 'store']);
+
+Route::get('myPayments/{id}', [ApiTransferMoneyFirmOrderController::class, 'myPayments']);
+
+
 
 Route::get('transfer', [ApiTransferController::class, 'index']);
 

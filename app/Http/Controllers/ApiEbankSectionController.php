@@ -11,6 +11,9 @@ class ApiEbankSectionController extends Controller
     public function index()
     {
        $ebankSections=DB::table('ebank_sections')->select('*')->orderBy('id', 'desc')->paginate(500);
+       foreach ($ebankSections as $app) {
+         $app->image_url = asset('assets/images/ebankSections/' . $trans->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['ebankSections'=> $ebankSections ]);
     }
 

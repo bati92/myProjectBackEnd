@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('ime');
             $table->integer('price');
             $table->string('note')->nullable();
+            $table->string('status')->nullable()->default('قيد المراجعة');
             
             $table->timestamps();
         });

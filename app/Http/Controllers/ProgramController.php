@@ -21,7 +21,7 @@ class ProgramController extends Controller
         {
             if ($file = $request->file('image')) {
                 $name = 'program'.time().$file->getClientOriginalName();
-                $file->move('assets/images/program/', $name);
+                $file->move('assets/images/programs/', $name);
                 $input['image'] = $name;
             }
         }

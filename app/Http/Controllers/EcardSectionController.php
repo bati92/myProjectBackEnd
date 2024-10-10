@@ -22,7 +22,7 @@ class EcardSectionController extends Controller
         {
             if ($file = $request->file('image')) {
                 $name = 'ecard'.time().$file->getClientOriginalName();
-                $file->move('assets/images/ecardSection/', $name);
+                $file->move('assets/images/ecardSections/', $name);
                 $input['image'] = $name;
             }
         }

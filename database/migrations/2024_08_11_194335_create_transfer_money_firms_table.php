@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('iban');
+            $table->string('note')->nullable();
             $table->string('account_name');
             $table->string('image')->nullable();
             $table->string('image_url')->nullable();
-
+ 
+ 
             $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ class TransferMoneyFirm extends Model
         'account_name',
         'image',
         'status',
+        'note'
     ];
 
     public function users()

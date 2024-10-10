@@ -22,7 +22,7 @@ class EbankSectionController extends Controller
         {
             if ($file = $request->file('image')) {
                 $name = 'ebank'.time().$file->getClientOriginalName();
-                $file->move('assets/images/ebankSection/', $name);
+                $file->move('assets/images/ebankSections/', $name);
                 $input['image'] = $name;
             }
         }

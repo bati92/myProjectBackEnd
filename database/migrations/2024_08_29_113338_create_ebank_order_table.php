@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('ebank_id')->references('id')->on('ebanks')->onDelete('cascade');
         
+            $table->string('status')->nullable()->default('قيد المراجعة');
             $table->integer('count');
             $table->integer('price');
             $table->string('mobile');

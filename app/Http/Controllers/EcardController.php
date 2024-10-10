@@ -24,7 +24,7 @@ class EcardController extends Controller
          {
             if ($file = $request->file('image')) {
             $name = 'ecard'.time().$file->getClientOriginalName();
-            $file->move('assets/images/ecard/', $name);
+            $file->move('assets/images/ecards/', $name);
             $input['image'] = $name;
          }
         }

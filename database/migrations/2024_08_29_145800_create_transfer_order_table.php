@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('mobile');
             $table->integer('count');
             $table->string('note')->nullable();
+            
+            $table->string('status')->nullable()->default('قيد المراجعة');
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class CardController extends Controller
          {
             if ($file = $request->file('image')) {
                 $name = 'card'.time().$file->getClientOriginalName();
-                $file->move('assets/images/card/', $name);
+                $file->move('assets/images/cards/', $name);
                 $input['image'] = $name;
             }   
         }

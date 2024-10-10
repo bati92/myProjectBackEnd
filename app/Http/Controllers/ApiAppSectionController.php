@@ -12,6 +12,9 @@ class ApiAppSectionController extends Controller
     public function index()
     {
        $appSections=DB::table('app_sections')->select('*')->orderBy('id', 'desc')->paginate(500);
+       foreach ($appSections as $app) {
+         $app->image_url = asset('assets/images/appSections /' . $trans->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['appSections'=> $appSections ]);
     }
 

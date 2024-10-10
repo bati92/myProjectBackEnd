@@ -14,7 +14,8 @@ class TurkificationOrder extends Model
         'user_id',
         'ime',
         'price',
-        'note'
+        'note',
+        'status'
     ];
     
     public function user(): BelongsTo

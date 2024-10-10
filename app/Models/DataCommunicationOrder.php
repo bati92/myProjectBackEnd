@@ -15,6 +15,7 @@ class DataCommunicationOrder extends Model
         'price',
         'count',
         'note',
-        'mobile'
+        'mobile',
+        'status'
     ];
 }

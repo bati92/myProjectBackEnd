@@ -14,7 +14,7 @@ class ApiTransferMoneyFirmController extends Controller
         foreach ($transferMoneyFirms as $trans) {
             $trans->image_url = asset('assets/images/TransferMoneyFirm/' . $trans->image);  // إنشاء رابط للصورة
         }
-        //return $transferMoneyFirms;
+        
         return response()->json(['companies'=>$transferMoneyFirms]);
     }
 

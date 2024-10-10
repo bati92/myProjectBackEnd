@@ -12,6 +12,9 @@ class ApiEbankController extends Controller
     public function index()
     { 
         $ebanks=DB::table('ebanks')->select('*')->orderBy('id', 'desc')->paginate(500);
+        foreach ($ebanks as $app) {
+            $app->image_url = asset('assets/images/ebanks/' . $trans->image);  // إنشاء رابط للصورة
+        }
         return response()->json(['ebanks'=>$ebanks]);
     }
   

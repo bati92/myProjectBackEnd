@@ -55,7 +55,7 @@
                     
                                             <td>{{$transferMoneyFirm->iban}}</td>
                                             <td>{{$transferMoneyFirm->account_name}}</td>
-                                            <td class="project-actions">
+                                             <td class="project-actions">
                                                 <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
                                                 <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="icon-eye"></i></a>
                                                 <a href="javascript:void(0);" data-toggle="modal" data-target="#editModal{{$transferMoneyFirm->id}}" class="btn btn-sm btn-outline-success"><i class="icon-pencil"></i></a>
@@ -104,7 +104,13 @@
                         </div>
                         <input type="text" class="form-control" required placeholder="اسم صاحب الحساب"  name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
                     </div>
-                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-edit"> </i></span>
+                        </div>
+                        <textarea class="form-control"  name="note" placeholder="الملاحظات"  ></textarea>
+
+                    </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">تحميل</span>
@@ -173,7 +179,13 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" value="{{$transferMoneyFirm->account_name}}" required placeholder="اسم صاحب الحساب"  name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
                     </div>
-                    
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-edit"> </i></span>
+                        </div>
+                        <textarea class="form-control"  name="note" placeholder="الوصف" value= >{{$transferMoneyFirm->note}}</textarea>
+
+                    </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">تحميل</span>

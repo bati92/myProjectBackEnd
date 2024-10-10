@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('user_id_game');//ايدية اليوزر باللعبة
             $table->string('name')->nullable();
             
+            $table->string('status')->nullable()->default('قيد المراجعة');
             $table->integer('price');
             $table->integer('count')->nullable();
             $table->string('note')->nullable();

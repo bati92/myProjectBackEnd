@@ -13,6 +13,7 @@ class ProgramOrder extends Model
         'user_id',
         'count',
         'price',
-        'note'
+        'note',
+        'status'
     ];
 }

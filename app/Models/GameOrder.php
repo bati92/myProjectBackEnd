@@ -15,7 +15,8 @@ class GameOrder extends Model
         'name',
         'count',
         'price',
-        'note'
+        'note',
+        'status'
     ];
     
 

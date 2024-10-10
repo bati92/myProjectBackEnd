@@ -11,6 +11,9 @@ class ApiEcardController extends Controller
     public function index()
     { 
         $ecards=DB::table('ecards')->select('*')->orderBy('id', 'desc')->paginate(500);
+        foreach ($ecards as $app) {
+            $app->image_url = asset('assets/images/ecards/' . $trans->image);  // إنشاء رابط للصورة
+        }
         return response()->json(['ecards'=>$ecards]);
     }
    

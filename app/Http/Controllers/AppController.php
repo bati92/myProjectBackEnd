@@ -45,7 +45,7 @@ class AppController extends Controller
         {
             if ($file = $request->file('image')) {
                 $name = 'app_'.time().$file->getClientOriginalName();
-                $file->move('images/apps/', $name);
+                $file->move('assets/images/apps/', $name);
                 $input['image'] = $name;
             }
        }

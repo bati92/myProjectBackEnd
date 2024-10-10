@@ -25,7 +25,7 @@ class GameSectionController extends Controller
          {
             if ($file = $request->file('image')) {
                 $name = 'game'.time().$file->getClientOriginalName();
-                $file->move('assets/images/gameSection/', $name);
+                $file->move('assets/images/gameSections/', $name);
                 $input['image'] = $name;
             }
         }

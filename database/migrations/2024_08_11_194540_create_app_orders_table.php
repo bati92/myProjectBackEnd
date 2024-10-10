@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('count');
             $table->integer('price');
             
+            $table->string('status')->nullable()->default('قيد المراجعة');
             $table->string('note')->nullable();
             $table->string('player_no');
             $table->timestamps();

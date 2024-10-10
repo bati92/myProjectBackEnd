@@ -14,7 +14,8 @@ class TransferOrder extends Model
         'price',
         'count',
         'mobile',
-        'note'
+        'note',
+        'status'
     ];
      
     public function user(): BelongsTo

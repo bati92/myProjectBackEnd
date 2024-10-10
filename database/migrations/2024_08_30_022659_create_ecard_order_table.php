@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('price');
             $table->string('note')->nullable();
             $table->string('mobile')->nullable();
+            
+            $table->string('status')->nullable()->default('قيد المراجعة');
             $table->timestamps();
         });
     }

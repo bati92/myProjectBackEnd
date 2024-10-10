@@ -12,6 +12,9 @@ class ApiAppController extends Controller
     public function index()
     {
        $apps=DB::table('apps')->select('*')->orderBy('id', 'desc')->paginate(500);
+       foreach ($apps as $app) {
+         $app->image_url = asset('assets/images/apps/' . $trans->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['apps'=>$apps ]);
     }
     public function show($id)

@@ -17,6 +17,7 @@ class AppOrder extends Model
         'player_no',
         'count',
         'price',
-        'note'
+        'note',
+        'status'
     ];
 }

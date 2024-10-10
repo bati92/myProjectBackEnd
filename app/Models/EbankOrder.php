@@ -16,5 +16,6 @@ class EbankOrder extends Model
         'price',
         'mobile',
         'note',
+        'status'
     ];
 }

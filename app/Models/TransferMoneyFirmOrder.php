@@ -18,5 +18,9 @@ class TransferMoneyFirmOrder extends Model
         'currency',
         'dekont_no',
         'password',
+        'account_salary_id',
+        'account_salary_name',
+        'process_no',
+        'status'
     ];
 }

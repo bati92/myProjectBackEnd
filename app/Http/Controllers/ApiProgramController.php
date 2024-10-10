@@ -12,6 +12,9 @@ class ApiProgramController extends Controller
     public function index()
     { 
         $programs=DB::table('programs')->select('*')->orderBy('id', 'desc')->paginate(500);
+        foreach ($programs as $app) {
+            $app->image_url = asset('assets/images/programs/' . $trans->image);  // إنشاء رابط للصورة
+        }
         return response()->json(['programs'=>$programs]);
     }
     public function show($id)

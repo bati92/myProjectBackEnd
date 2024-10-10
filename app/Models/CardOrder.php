@@ -13,6 +13,7 @@ class CardOrder extends Model
         'user_id',
         'price',
         'count',
-        'note'
+        'note',
+        'status'
     ];
 }

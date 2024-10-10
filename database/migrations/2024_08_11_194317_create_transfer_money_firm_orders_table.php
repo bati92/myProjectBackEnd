@@ -17,11 +17,16 @@ return new class extends Migration
             $table->integer('user_id');
             $table->foreign('transfer_money_firm_id')->references('id')->on('transfer_money_firms')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('sender');
-            $table->integer('value');
-            $table->string('currency');
-            $table->integer('dekont_no');
-            $table->string('password');
+            $table->string('sender')->nullable();
+            $table->integer('value')->nullable();
+            $table->string('currency')->nullable();
+            $table->integer('dekont_no')->nullable();
+            $table->string('account_salary_name')->nullable();
+            $table->integer('account_salary_id')->nullable();
+            $table->string('process_no')->nullable();
+            $table->string('password')->nullable();
+            
+            $table->string('status')->nullable()->default('قيد المراجعة');
             $table->timestamps();
         });
     }
