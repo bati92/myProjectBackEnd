@@ -44,7 +44,7 @@ class GameController extends Controller
         {
            if ($file = $request->file('image')) {
                $name = 'game'.time().$file->getClientOriginalName();
-               $file->move('assets/images/game/', $name);
+               $file->move('assets/images/games/', $name);
                $input['image'] = $name;
             }
         }

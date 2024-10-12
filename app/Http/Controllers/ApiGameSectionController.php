@@ -12,7 +12,7 @@ class ApiGameSectionController extends Controller
     {
        $gameSections=DB::table('game_sections')->select('*')->orderBy('id', 'desc')->paginate(500);
        foreach ($gameSections as $app) {
-         $app->image_url = asset('assets/images/ganeSections/' . $trans->image);  // إنشاء رابط للصورة
+         $app->image_url = asset('assets/images/gameSections/' . $app->image);  // إنشاء رابط للصورة
      }
        return response()->json(['gameSections'=> $gameSections ]);
     }
@@ -21,6 +21,9 @@ class ApiGameSectionController extends Controller
     {
        $section = GameSection::find($section_id);
        $games = $section->games;
+       foreach ($games as $app) {
+         $app->image_url = asset('assets/images/games/' . $app->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['games'=> $games ]);
     }
 }

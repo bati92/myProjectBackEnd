@@ -12,9 +12,11 @@ class ApiAppSectionController extends Controller
     public function index()
     {
        $appSections=DB::table('app_sections')->select('*')->orderBy('id', 'desc')->paginate(500);
+
        foreach ($appSections as $app) {
-         $app->image_url = asset('assets/images/appSections /' . $trans->image);  // إنشاء رابط للصورة
+         $app->image_url = asset('assets/images/appSections/' . $app->image);  // إنشاء رابط للصورة
      }
+     
        return response()->json(['appSections'=> $appSections ]);
     }
 
@@ -22,7 +24,9 @@ class ApiAppSectionController extends Controller
     {
        $section = AppSection::find($section_id);
        $apps = $section->apps;
-    //    $apps = App::with('appSection')->find($section_id);
+       foreach ($apps as $app) {
+         $app->image_url = asset('assets/images/apps/' . $app->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['apps'=> $apps ]);
     }
 }
