@@ -73,6 +73,8 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::resource('app', AppController::class);
     Route::resource('app-section', AppSectionContoller::class);
     Route::resource('app-order', AppOrderController::class);
+    Route::get('app-order/reject/{id}',[ AppOrderController::class,'reject']);
+    Route::get('app-order/accept/{id}',[ AppOrderController::class,'accept']);
 
     Route::get('/app/{id}/category',[ AppController::class,'showApps']);
     Route::post('/app/{id}/status',[ AppController::class,'changeStatus']);

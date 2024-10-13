@@ -12,7 +12,7 @@ class ApiCardController extends Controller
     { 
         $cards=DB::table('cards')->select('*')->orderBy('id', 'desc')->paginate(500);
         foreach ($cards as $app) {
-            $app->image_url = asset('assets/images/cards/' . $trans->image);  // إنشاء رابط للصورة
+            $app->image_url = asset('assets/images/cards/' . $app->image);  // إنشاء رابط للصورة
         }
         return response()->json(['cards'=>$cards]);
     }

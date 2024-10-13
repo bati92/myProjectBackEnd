@@ -12,7 +12,7 @@ class ApiEbankSectionController extends Controller
     {
        $ebankSections=DB::table('ebank_sections')->select('*')->orderBy('id', 'desc')->paginate(500);
        foreach ($ebankSections as $app) {
-         $app->image_url = asset('assets/images/ebankSections/' . $trans->image);  // إنشاء رابط للصورة
+         $app->image_url = asset('assets/images/ebankSections/' . $app->image);  // إنشاء رابط للصورة
      }
        return response()->json(['ebankSections'=> $ebankSections ]);
     }
@@ -21,6 +21,9 @@ class ApiEbankSectionController extends Controller
     {
        $section = EbankSection::find($section_id);
        $ebanks = $section->ebanks;
+       foreach ($ebanks as $app) {
+         $app->image_url = asset('assets/images/ebanks/' . $app->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['ebanks'=> $ebanks ]);
     }
 }

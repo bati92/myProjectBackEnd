@@ -39,7 +39,20 @@ class AppOrderController extends Controller
         
         return back()->with('message', 'تم التعديل بنجاح');
     }
-
+    public function reject( $id)
+    {
+        $appOrder= AppOrder::findOrFail($id);
+        $appOrder->status="مرفوض";
+        $appOrder->save();
+        return back()->with('message', 'تمت العملية  بنجاح');
+    }
+    public function accept( $id)
+    {
+        $appOrder= AppOrder::findOrFail($id);
+        $appOrder->status="مقبول";
+        $appOrder->save();
+        return back()->with('message', 'تمت العملية  بنجاح');
+    }
     public function destroy( $id)
     {
         $appOrder= AppOrder::findOrFail($id);

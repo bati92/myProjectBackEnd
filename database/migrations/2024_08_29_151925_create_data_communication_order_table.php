@@ -6,12 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('data_dommunication_orders', function (Blueprint $table) {
+        Schema::create('data_communication_orders', function (Blueprint $table) {
             $table->id();
             $table->integer('data_id');
             $table->integer('user_id');

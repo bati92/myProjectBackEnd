@@ -28,12 +28,12 @@ class ApiAllServicesTotalController extends Controller
        return response()->json([
         'appRecords'=>$appRecords,
         'cardRecords'=>$cardRecords,
-        'dataCommunicationRecords'=>$dataCommunicationRecords,
+        'data-communicationRecords'=>$dataCommunicationRecords,
         'ebankRecords'=>$ebankRecords,
         'ecardRecords'=>$ecardRecords,
         'gameRecords'=>$gameRecords,
         'programRecords'=>$programRecords,
-        'transferMoneyFirmRecords'=>$transferMoneyFirmRecords,
+        'transfer-mone-firmRecords'=>$transferMoneyFirmRecords,
     ]);
     }
 }

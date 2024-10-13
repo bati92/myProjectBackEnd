@@ -13,14 +13,16 @@ class ApiDataCommunicationController extends Controller
     { 
         $dataCommunications=DB::table('data_communications')->select('*')->orderBy('id', 'desc')->paginate(500);
         foreach ($dataCommunications as $app) {
-            $app->image_url = asset('assets/images/data/' . $trans->image);  // إنشاء رابط للصورة
+            $app->image_url = asset('assets/images/data/' . $app->image);  // إنشاء رابط للصورة
         }
+       
         return response()->json(['dataCommunications'=>$dataCommunications ]);
     }
 
     public function show($id)
     {
-       $dataCommunication = DataCommunication::findOrFail($id);
+       $dataCommunication = DataCommunication::findOrFail($id); 
+       
        return response()->json(['dataCommunication'=>$dataCommunication]);
     }
 }

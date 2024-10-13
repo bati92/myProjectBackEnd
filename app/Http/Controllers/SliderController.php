@@ -26,7 +26,7 @@ class SliderController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $name = 'slider'.time().$file->getClientOriginalName();
-            $file->move('images/sliders/', $name);
+            $file->move('assets/images/sliders/', $name);
             $input['image'] = $name;
             Slider::create($input);
         }
@@ -47,7 +47,7 @@ class SliderController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $name = 'slider'.time().$file->getClientOriginalName();
-            $file->move('images/sliders/', $name);
+            $file->move('assets/images/sliders/', $name);
             $input['image'] = $name;
             $slider->update($input);
         }

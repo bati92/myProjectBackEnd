@@ -22,7 +22,7 @@ use App\Http\Controllers\ApiSettingController;
 use App\Http\Controllers\ApiAppOrderController;
 use App\Http\Controllers\ApiCardOrderController;
 use App\Http\Controllers\ApiECardOrderController;
-use App\Http\Controllers\ApiDataComumunicationOrderController;
+use App\Http\Controllers\ApiDataCommunicationOrderController;
 use App\Http\Controllers\ApiTransferController;
 
 use App\Http\Controllers\ApiEBankOrderController;
@@ -33,24 +33,6 @@ use App\Http\Controllers\ApiSliderController;
 use App\Http\Controllers\ApiTransferOrderController;
 
 
-
-Route::post('app/order/{id}',[ApiAppOrderController::class, 'store']);
-
-Route::post('game/order/{id}',[ApiGameOrderController::class, 'store']);
-
-Route::post('card/order/{id}',[ApiCardOrderController::class, 'store']);
-
-Route::post('ecard/order/{id}',[ApiECardOrderController::class, 'store']);
-
-Route::post('data-comumunication/order/{id}',[ApiDataComumunicationOrderController::class, 'store']);
-
-Route::post('ebank/order/{id}',[ApiEBankOrderController::class, 'store']);
-
-Route::post('turkification/order',[ApiTurkificationOrderController::class, 'store']);
-
-Route::post('program/order/{id}',[ApiProgramOrderController::class, 'store']);
-
-Route::post('transfer/order',[ApiTransferOrderController::class, 'store']);
 
 
 
@@ -76,6 +58,33 @@ Route::middleware('auth:api')->group(function () {
     Route::get('logout', [ApiUserController::class, 'logout']);
     Route::patch('users/{id}', [ApiUserController::class, 'update']);
     Route::get('agents/{role_id}', [ApiUserController::class, 'getAgents']);
+    Route::get('transfer-money-firms', [ApiTransferMoneyFirmController::class, 'index']);
+    Route::get('transfer-money-firm/{id}', [ApiTransferMoneyFirmController::class, 'show']);
+    
+    Route::post('charge', [ApiTransferMoneyFirmOrderController::class, 'store']);
+    
+    Route::get('myPayments/{id}', [ApiTransferMoneyFirmOrderController::class, 'myPayments']);
+    
+    Route::get('myRequests/{id}', [ApiUserController::class, 'myRequests']);
+    
+    
+Route::post('app/order/{id}',[ApiAppOrderController::class, 'store']);
+
+Route::post('game/order/{id}',[ApiGameOrderController::class, 'store']);
+
+Route::post('card/order/{id}',[ApiCardOrderController::class, 'store']);
+
+Route::post('ecard/order/{id}',[ApiECardOrderController::class, 'store']);
+
+Route::post('data-comumunication/order/{id}',[ApiDataCommunicationOrderController::class, 'store']);
+
+Route::post('ebank/order/{id}',[ApiEBankOrderController::class, 'store']);
+
+Route::post('turkification/order',[ApiTurkificationOrderController::class, 'store']);
+
+Route::post('program/order/{id}',[ApiProgramOrderController::class, 'store']);
+
+Route::post('transfer/order',[ApiTransferOrderController::class, 'store']);
 
 
 });
@@ -88,12 +97,6 @@ Route::middleware('auth:api')->group(function () {
 Route::get('programs', [ApiProgramController::class, 'index']);
 Route::get('program/{id}', [ApiProgramController::class, 'show']);
 
-Route::get('transfer-money-firms', [ApiTransferMoneyFirmController::class, 'index']);
-Route::get('transfer-money-firm/{id}', [ApiTransferMoneyFirmController::class, 'show']);
-
-Route::post('charge', [ApiTransferMoneyFirmOrderController::class, 'store']);
-
-Route::get('myPayments/{id}', [ApiTransferMoneyFirmOrderController::class, 'myPayments']);
 
 
 
@@ -115,6 +118,7 @@ Route::get('ebank-sections/{id}',[ApiEbankSectionController::class, 'getEbanks']
 Route::get('ebank/{id}',[ApiEbankController::class, 'show']);
 
 Route::get('ecard-sections',[ApiEcardSectionController::class, 'index']);
+
 Route::get('ecard-sections/{id}',[ApiEcardSectionController::class, 'getEcards']);
 Route::get('ecard/{id}',[ApiEcardController::class, 'show']);
 

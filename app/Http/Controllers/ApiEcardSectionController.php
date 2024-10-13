@@ -12,7 +12,7 @@ class ApiEcardSectionController extends Controller
     {
        $ecardSections=DB::table('ecard_sections')->select('*')->orderBy('id', 'desc')->paginate(500);
        foreach ($ecardSections as $app) {
-         $app->image_url = asset('assets/images/ecardSections/' . $trans->image);  // إنشاء رابط للصورة
+         $app->image_url = asset('assets/images/ecardSections/' . $app->image);  // إنشاء رابط للصورة
      }
        return response()->json(['ecardSections'=> $ecardSections ]);
     }
@@ -21,6 +21,9 @@ class ApiEcardSectionController extends Controller
     {
        $section = EcardSection::find($section_id);
        $ecards = $section->ecards;
+       foreach ($ecards as $app) {
+         $app->image_url = asset('assets/images/ecards/' . $app->image);  // إنشاء رابط للصورة
+     }
        return response()->json(['ecards'=> $ecards ]);
     }
 }

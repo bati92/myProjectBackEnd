@@ -80,6 +80,7 @@ class AppController extends Controller
           return back()->with('message', 'تم تفعيل الخدمة  بنجاح');
          }
     }
+
     public function destroy(string $id)
     {
         $app= App::findOrFail($id);

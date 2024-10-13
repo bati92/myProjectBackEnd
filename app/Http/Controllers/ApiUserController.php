@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+
+use App\Models\AppOrder;
 use Illuminate\Support\Facades\DB;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
+
 class ApiUserController extends Controller
 {
     public function getAgents($role)
@@ -86,6 +89,32 @@ class ApiUserController extends Controller
     public function getLoggedInUser()
     {
         return response()->json(Auth::user());
+    }
+
+    
+    public function myRequests($id)
+    {   $orders = collect();
+        $user=User::findOrFail($id);
+        $programs=$user->programs;
+        $turkification=$user->turkificationOrders;
+        $apps=$user->apps;
+        $games=$user->games;
+        $cards=$user->cards;
+        $ecards=$user->ecards;
+        $ebanks=$user->ebanks;
+        $apps=$user->apps;
+
+        $transfer=$user->transferOrders;
+        $orders = $orders->merge($programs)
+        ->merge($turkification)
+        ->merge($apps)
+        ->merge($games)
+        ->merge($cards)
+        ->merge($ecards)
+        ->merge($ebanks)
+        ->merge($transfer);
+      
+        return response()->json(["orders"=>$orders]);
     }
 
     public function update(Request $request,  $id)
