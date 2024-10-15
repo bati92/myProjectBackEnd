@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AppSectionContoller;
 use App\Http\Controllers\AppOrderController;
-
+use App\Http\Controllers\AllServicesTotalController;
 use App\Http\Controllers\SettingController;
 
 use App\Http\Controllers\CardController;
@@ -52,18 +52,15 @@ use App\Http\Middleware\LoadSettings;
 
 Route::middleware([LoadSettings::class])->group(function () {
     
-Route::get('/', function (Request $request) {
-    return view('welcome');});
 
-Route::get('/dashboard', function () {
-        return view('backend.dashboard');});
 
-Route::get('/home',function (Request $request) {
-  
-    return view('backend.dashboard');});
 
 Route::group(['middleware'=> 'auth'], function(){
 
+    Route::get('/dashboard', [AllServicesTotalController::class, 'index']);
+    
+    Route::get('/', [AllServicesTotalController::class, 'index']);
+    Route::get('/home', [AllServicesTotalController::class, 'index']);
     Route::resource( 'user', UserController::class,);
     
     Route::get('users/{id}/category', [UserController::class, 'showCategory']);

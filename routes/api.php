@@ -52,14 +52,14 @@ Route::get('totalRecords',[ApiAllServicesTotalController::class, 'index']);
 
 Route::get('about-us', [ApiSettingController::class, 'index']);
 
+Route::get('transfer-money-firms', [ApiTransferMoneyFirmController::class, 'index']);
+Route::get('transfer-money-firm/{id}', [ApiTransferMoneyFirmController::class, 'show']);
 
 Route::middleware('auth:api')->group(function () {
     Route::get('logged-in-user', [ApiUserController::class, 'getLoggedInUser']);
     Route::get('logout', [ApiUserController::class, 'logout']);
     Route::patch('users/{id}', [ApiUserController::class, 'update']);
     Route::get('agents/{role_id}', [ApiUserController::class, 'getAgents']);
-    Route::get('transfer-money-firms', [ApiTransferMoneyFirmController::class, 'index']);
-    Route::get('transfer-money-firm/{id}', [ApiTransferMoneyFirmController::class, 'show']);
     
     Route::post('charge', [ApiTransferMoneyFirmOrderController::class, 'store']);
     
@@ -67,6 +67,8 @@ Route::middleware('auth:api')->group(function () {
     
     Route::get('myRequests/{id}', [ApiUserController::class, 'myRequests']);
     
+});
+
     
 Route::post('app/order/{id}',[ApiAppOrderController::class, 'store']);
 
@@ -86,8 +88,6 @@ Route::post('program/order/{id}',[ApiProgramOrderController::class, 'store']);
 
 Route::post('transfer/order',[ApiTransferOrderController::class, 'store']);
 
-
-});
 
 
 
