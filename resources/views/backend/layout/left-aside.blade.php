@@ -44,7 +44,7 @@
                                     <ul>
                                       <li><a href="/app-section">الأقسام</a></li>
                                       <li><a href="/app">التطبيقات</a></li>
-                                      <li><a href="/app-order">طلبات الشحن</a></li>
+                                      <li><a href="/app-order">طلبات التطبيقات</a></li>
 
                                      </ul>
                                     </li>
@@ -80,7 +80,7 @@
                                        </ul>
                                     </li>
 
-                                    <li><a href="#">خدمة تفيل البرامج</a>
+                                    <li><a href="#">خدمة تفعيل البرامج</a>
                                       <ul>
                                         <li><a href="/program">البرامج</a></li>
                                         <li><a href="/program-order">طلبات تفعيل البرامج</a></li>
